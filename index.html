@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoArena | Algorithm Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">A</span><div><b>AlgoArena</b><small>ALGORITHM PLAYGROUND</small></div></div>
+    <div class="top-tag">LEARN · VISUALIZE · EXPERIMENT</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">INTERACTIVE COMPUTER SCIENCE LAB</div>
+      <h1>Make algorithms<br><span>come alive.</span></h1>
+      <p>Explore sorting, searching and data structures through hands-on visual experiments. Change the inputs, run the steps, and see how the logic works.</p>
+      <div class="hero-stats"><div><b>03</b><span>PLAYGROUNDS</span></div><div><b>08+</b><span>ALGORITHMS & OPERATIONS</span></div><div><b>100%</b><span>IN YOUR BROWSER</span></div></div>
+    </section>
+
+    <nav class="tabs" aria-label="Playgrounds">
+      <button class="tab active" data-panel="sorting">01&nbsp; Sorting Lab</button>
+      <button class="tab" data-panel="searching">02&nbsp; Search Lab</button>
+      <button class="tab" data-panel="structures">03&nbsp; Data Structures</button>
+    </nav>
+
+    <section id="sorting" class="panel active">
+      <div class="section-head"><div><div class="eyebrow">PLAYGROUND 01</div><h2>Sorting laboratory</h2><p>Watch values move into order, one operation at a time.</p></div><span class="pill">LIVE VISUALIZER</span></div>
+      <div class="control-card">
+        <div class="controls-row">
+          <label>Algorithm<select id="sortAlgo"><option value="bubble">Bubble Sort</option><option value="selection">Selection Sort</option><option value="insertion">Insertion Sort</option></select></label>
+          <label>Array size <output id="sizeOut">24</output><input id="arraySize" type="range" min="8" max="48" value="24"></label>
+          <label>Speed <output id="speedOut">Normal</output><input id="speed" type="range" min="1" max="5" value="3"></label>
+        </div>
+        <div class="button-row"><button class="btn primary" id="sortRun">▶ Visualize sort</button><button class="btn" id="sortRandom">↻ New array</button><button class="btn ghost" id="sortStop">■ Stop</button></div>
+      </div>
+      <div class="visual-card"><div class="visual-top"><b>ARRAY CANVAS</b><span id="sortStatus">Ready for a new run</span></div><div id="bars" class="bars" aria-label="Array bars"></div><div class="legend"><span><i class="dot normal"></i>Unsorted</span><span><i class="dot compare"></i>Comparing</span><span><i class="dot done"></i>Sorted</span></div></div>
+      <div class="metrics"><div><small>COMPARISONS</small><b id="comparisons">0</b></div><div><small>SWAPS / SHIFTS</small><b id="swaps">0</b></div><div><small>TIME COMPLEXITY</small><b id="complexity">O(n²)</b></div></div>
+    </section>
+
+    <section id="searching" class="panel">
+      <div class="section-head"><div><div class="eyebrow">PLAYGROUND 02</div><h2>Search laboratory</h2><p>Find a target and compare how search strategies behave.</p></div><span class="pill">STEP-BY-STEP</span></div>
+      <div class="control-card">
+        <div class="controls-row">
+          <label>Search method<select id="searchAlgo"><option value="linear">Linear Search</option><option value="binary">Binary Search</option></select></label>
+          <label>Target number<input id="target" type="number" value="42" min="1" max="99"></label>
+        </div>
+        <div class="button-row"><button class="btn primary" id="searchRun">▶ Search</button><button class="btn" id="searchReset">↻ Reset values</button></div>
+      </div>
+      <div class="visual-card"><div class="visual-top"><b>SEARCH ARRAY</b><span id="searchStatus">Choose a method and search</span></div><div id="searchItems" class="search-items"></div><div class="legend"><span><i class="dot normal"></i>Not checked</span><span><i class="dot compare"></i>Current check</span><span><i class="dot done"></i>Found</span></div></div>
+      <div class="metrics"><div><small>ELEMENTS CHECKED</small><b id="checked">0</b></div><div><small>RESULT</small><b id="searchResult">—</b></div><div><small>TIME COMPLEXITY</small><b id="searchComplexity">O(n)</b></div></div>
+      <p class="note">Binary search requires sorted data. AlgoArena sorts the values automatically before running it.</p>
+    </section>
+
+    <section id="structures" class="panel">
+      <div class="section-head"><div><div class="eyebrow">PLAYGROUND 03</div><h2>Data structure sandbox</h2><p>Try common Stack and Queue operations and inspect each state.</p></div><span class="pill">INTERACTIVE</span></div>
+      <div class="structure-grid">
+        <article class="structure-card"><div class="structure-title"><div><span class="icon">▤</span><h3>Stack</h3><small>LAST IN, FIRST OUT · LIFO</small></div><span class="pill">STACK</span></div><div class="input-line"><input id="stackValue" maxlength="8" placeholder="Enter a value"><button class="btn primary" id="push">Push</button></div><div class="button-row"><button class="btn" id="pop">Pop</button><button class="btn ghost" id="clearStack">Clear</button></div><div id="stackView" class="structure-view"></div><div class="structure-foot" id="stackMessage">Push a value to begin.</div></article>
+        <article class="structure-card"><div class="structure-title"><div><span class="icon">⇥</span><h3>Queue</h3><small>FIRST IN, FIRST OUT · FIFO</small></div><span class="pill">QUEUE</span></div><div class="input-line"><input id="queueValue" maxlength="8" placeholder="Enter a value"><button class="btn primary" id="enqueue">Enqueue</button></div><div class="button-row"><button class="btn" id="dequeue">Dequeue</button><button class="btn ghost" id="clearQueue">Clear</button></div><div id="queueView" class="structure-view horizontal"></div><div class="structure-foot" id="queueMessage">Enqueue a value to begin.</div></article>
+      </div>
+    </section>
+
+    <footer><span>ALG O ARENA <b>·</b> BUILT FOR CURIOUS MINDS</span><span>No installation. No sign-in. Just open and explore.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
